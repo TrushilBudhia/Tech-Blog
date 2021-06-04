@@ -1,4 +1,5 @@
 // Importing package modules
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -15,7 +16,7 @@ const PORT = process.env.PORT || 3001;
 
 // Setting up sessions with cookies
 const sequelizeSession = {
-  secret: 'Super secret secret',
+  secret: process.env.DB_SECRET,
   cookie: {},
   resave: false,
   saveUninitialized: true,
