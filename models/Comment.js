@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Extending the Model prototype to the Comment class
-class Comment extends Model {}
+class Comment extends Model { }
 
 // Initializing the Comment class
 Comment.init(
@@ -17,21 +17,23 @@ Comment.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        // Adding user_id to link the comment to the user
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            //allowNull: false,
             references: {
                 model: 'user',
                 key: 'id',
-              },
+            },
         },
+        // Adding post_id to link the comment to the post
         post_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'post',
                 key: 'id',
-              },
+            },
         },
     },
     {

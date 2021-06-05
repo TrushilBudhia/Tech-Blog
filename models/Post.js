@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Extending the Model prototype to the Post class
-class Post extends Model {}
+class Post extends Model { }
 
 // Initializing the Post class
 Post.init(
@@ -18,16 +18,16 @@ Post.init(
             allowNull: false,
         },
         content: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            //allowNull: false,
             references: {
                 model: 'user',
                 key: 'id',
-              },
+            },
         },
     },
     {
