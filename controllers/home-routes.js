@@ -10,26 +10,26 @@ router.get('/', async (req, res) => {
                 'content',
                 'created_at'
             ],
-            // include: [
-            //     {
-            //         model: Comment,
-            //         attributes: [
-            //             'id',
-            //             'comment_text',
-            //             'post_id',
-            //             'user_id',
-            //             'created_at'
-            //         ],
-            //         include: {
-            //             model: User,
-            //             attributes: ['username'],
-            //         },
-            //     },
-            //     {
-            //         model: User,
-            //         attributes: [ 'username' ],
-            //     },
-            // ],
+            include: [
+                {
+                    model: Comment,
+                    attributes: [
+                        'id',
+                        'comment_text',
+                        'post_id',
+                        'user_id',
+                        'created_at'
+                    ],
+                    include: {
+                        model: User,
+                        attributes: ['username'],
+                    },
+                },
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+            ],
         });
 
         const posts = dbPostData.map((post) =>
@@ -58,26 +58,26 @@ router.get('/post/:id', async (req, res) => {
                 'content',
                 'created_at'
             ],
-            // include: [
-            //     {
-            //         model: Comment,
-            //         attributes: [
-            //             'id',
-            //             'comment_text',
-            //             'post_id',
-            //             'user_id',
-            //             'created_at'
-            //         ],
-            //         include: {
-            //             model: User,
-            //             attributes: ['username'],
-            //         },
-            //     },
-            //     {
-            //         model: User,
-            //         attributes: [ 'username' ],
-            //     },
-            // ],
+            include: [
+                {
+                    model: Comment,
+                    attributes: [
+                        'id',
+                        'comment_text',
+                        'post_id',
+                        'user_id',
+                        'created_at'
+                    ],
+                    include: {
+                        model: User,
+                        attributes: ['username'],
+                    },
+                },
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+            ],
         });
         if (!dbPostData) {
             res
@@ -100,16 +100,10 @@ router.get('/login', (req, res) => {
         res.redirect('/');
         return;
     }
-
     res.render('login');
 });
 
 router.get('/signup', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
-
     res.render('signup');
 });
 
