@@ -1,12 +1,21 @@
+/* Setting up CSS variables in the root */
+:root {
+    --main-black: #000000;
+    --main-green: #19a020;
+    --main-dark-gray: #202020;
+    --main-light-plum: #924577;
+    --main-white: #ffffff;
+}
+
 /* Base reset */
 * {
     margin: 0;
     padding: 0;
 }
 
+/* Element styling */ 
 body {
     background: #e4e3e3;
-    /* color: #ffffff; */
     font-family: Tahoma, Geneva, sans-serif;
 }
 
@@ -15,9 +24,10 @@ a {
 }
 
 a:hover {
-    color:rgb(25, 160, 32)
+    color: var(--main-green);
 }
 
+/* Header styling */
 header {
     background: 
         linear-gradient(
@@ -34,28 +44,117 @@ header {
 }
 
 header h1, header nav {
-    color: #ffffff;
+    color: var(--main-white);
     display: flex;
-    justify-content: flex-start;
-    margin-left: 60px;
+    /* justify-content: center; */
+    margin-left: 2%;
+    /* text-align: center; */
 }
 
 header h1 {
-    color: #ffffff;
-    font-size: 4rem;
+    color: var(--main-white);
+    font-size: 250%;
     opacity: 85%;
-    width: 100%;
 }
 
 header nav a {
-    border: 1px solid #ffffff;
-    color: #ffffff;
-    margin-right: 30px;
-    margin-top: 20px;
-    padding: 10px 40px;
+    border: 1px solid var(--main-white);
+    border-radius: 2%;
+    color: var(--main-white);
+    margin-right: 2%;
+    margin-top: 1rem;
+    padding: 0.7rem 2rem;
+    text-align: center;
+    width: 6.3rem;
 }
 
 header nav a:hover {
     background: rgba(170, 105, 255, 0.4);
-    color: #ffffff;
+    /* background:         
+    linear-gradient(
+        rgba(170, 105, 255, 0.4), 
+        rgba(20, 236, 56, 0.4)
+    ); */
+    color: var(--main-white);
+}
+
+/* Main section styling */ 
+main {
+    margin: 1rem 1rem auto;
+}
+
+/* Card section styling */ 
+.card {
+    border-bottom: 1px solid rgb(71, 71, 71, 0.2);
+    margin: 1.5rem 0rem;
+    padding: 1rem;
+}
+
+.post-header {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.post-header h2 {
+    margin-bottom: 0.5rem;
+}
+
+.post-header h2 a {
+    color: var(--main-dark-gray);
+}
+
+.post-header h2 a:hover {
+    color: var(--main-green);
+    /* color:rgb(25, 160, 32) */
+}
+
+.post-body {
+    background: #cacaca;
+    /* margin-bottom: 0.3rem; */
+    padding: 1rem;
+}
+
+.post-body p {
+    margin-bottom: 1rem;
+}
+
+/* Footer section styling */
+footer {
+    background: var(--main-dark-gray);
+    color: var(--main-white);
+    display: flex;
+    font-weight: 300;
+    justify-content: center;
+    padding: 1.25rem;
+  }
+  
+  footer p a {
+    color: var(--main-white);
+  }
+  
+  footer p a:hover {
+    color: var(--main-light-plum);
+  }
+
+/* MEDIA QUERIES */
+/***********************************************************/ 
+/* For larger TABLETS and bigger devices - min-width 768px */
+/***********************************************************/ 
+@media only screen and (min-width: 768px) {
+    header h1, header nav {
+        color: var(--main-white);
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 17%;
+    }
+
+    header h1 {
+        font-size: 320%;
+    }
+
+    main {
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 66%;
+    }
 }
