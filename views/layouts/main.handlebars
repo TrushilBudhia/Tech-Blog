@@ -9,25 +9,27 @@
 </head>
 
 <body>
-    <header>
-        <h1>Lets Get Technucated</h1>
-        <nav>
-            <a href="/">Home</a>
-            {{#if loggedIn}}
-            <a href="/dashboard">Dashboard</a>
-            <button id="logout" class="btn-no-style">Logout</button>
-            {{else}}
-            <a href="/login">Login</a>
-            {{/if}}
-        </nav>
-    </header>
+    <div id="page-container">
+        <header>
+            <h1>Lets Get Technucated</h1>
+            <nav>
+                <a href="/">Home</a>
+                {{#if loggedIn}}
+                <a href="/dashboard">Dashboard</a>
+                <button id="logout" class="btn-no-style">Logout</button>
+                {{else}}
+                <a href="/login">Login</a>
+                {{/if}}
+            </nav>
+        </header>
 
-    <main>
-        {{{body}}}
-    </main>
-    <footer>
-        <p>© Created by <a href="https://github.com/TrushilBudhia">Trushil</a></p>
-    </footer>
+        <main>
+            {{{body}}}
+        </main>
+        <footer>
+            <p>© Created by <a href="https://github.com/TrushilBudhia">Trushil</a></p>
+        </footer>
+    </div>
     {{#if loggedIn}}
     <script src="/js/logout.js"></script>
     {{/if}}

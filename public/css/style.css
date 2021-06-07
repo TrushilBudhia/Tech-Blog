@@ -15,8 +15,11 @@
 
 /* Element styling */ 
 body {
-    background: #e4e3e3;
+    background: #ececec;
     font-family: Tahoma, Geneva, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -25,6 +28,11 @@ a {
 
 a:hover {
     color: var(--main-green);
+}
+
+#page-container {
+    position: relative;
+
 }
 
 /* Header styling */
@@ -46,9 +54,7 @@ header {
 header h1, header nav {
     color: var(--main-white);
     display: flex;
-    /* justify-content: center; */
     margin-left: 2%;
-    /* text-align: center; */
 }
 
 header h1 {
@@ -105,17 +111,48 @@ main {
 
 .post-header h2 a:hover {
     color: var(--main-green);
-    /* color:rgb(25, 160, 32) */
 }
 
 .post-body {
     background: #cacaca;
-    /* margin-bottom: 0.3rem; */
     padding: 1rem;
 }
 
 .post-body p {
     margin-bottom: 1rem;
+}
+
+/* Login/Signup section styling */
+.login-card {
+    align-items: center;
+    border: 1px solid var(--main-dark-gray);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1%;
+    padding: 2rem;
+}
+
+.form-group {
+    margin: 0.8rem 0rem;
+}
+
+.form-group button {
+    background: #1d1d1d;
+    border: 1px solid var(--main-dark-gray);
+    border-radius: 4%;
+    color: var(--main-white);
+    font-size: 100%;
+    margin: 0.7rem 0rem;
+    padding: 0.5rem 4rem;
+}
+
+.form-group button:hover {
+    background: #10681e;
+}
+
+.form-input {
+    font-size: 100%;
 }
 
 /* Footer section styling */
@@ -125,16 +162,18 @@ footer {
     display: flex;
     font-weight: 300;
     justify-content: center;
-    padding: 1.25rem;
-  }
+    margin-top: auto;
+    min-width: 100%;
+    padding: 1.25rem 0rem;
+}
   
-  footer p a {
+footer p a {
     color: var(--main-white);
-  }
-  
-  footer p a:hover {
+}
+
+footer p a:hover {
     color: var(--main-light-plum);
-  }
+}
 
 /* MEDIA QUERIES */
 /***********************************************************/ 
