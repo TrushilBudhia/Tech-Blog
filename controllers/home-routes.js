@@ -85,9 +85,7 @@ router.get('/post/:id', async (req, res) => {
                 .json({ message: 'No post found with that id' });
             return;
         }
-        const posts = dbPostData.map((post) =>
-            post.get({ plain: true })
-        );
+        const post = dbPostData.get({ plain: true });
         res.render('individual-post', { post, loggedIn: req.session.loggedIn });
     } catch (err) {
         console.log(err);

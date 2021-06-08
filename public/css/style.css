@@ -17,9 +17,6 @@
 body {
     background: #ececec;
     font-family: Tahoma, Geneva, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 a {
@@ -31,8 +28,9 @@ a:hover {
 }
 
 #page-container {
-    position: relative;
-
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header styling */
@@ -47,8 +45,8 @@ header {
     border-bottom: 1px solid #2c2c2c;
     /* box-shadow: 0 1px 2px 0 rgb(0 0 0 / 50%); */
     color: #00688B;
-    font-size: 20px;
-    padding: 80px 20px;
+    font-size: 125%;
+    padding: 6rem 1.3rem;
 }
 
 header h1, header nav {
@@ -86,39 +84,36 @@ header nav a:hover {
 
 /* Main section styling */ 
 main {
-    margin: 1rem 1rem auto;
+    padding-bottom: 2rem;
 }
 
 /* Card section styling */ 
 .card {
     border-bottom: 1px solid rgb(71, 71, 71, 0.2);
-    margin: 1.5rem 0rem;
-    padding: 1rem;
+    padding-bottom: 1.5rem;
 }
 
-.post-header {
+.card-header {
     display: block;
-    margin-bottom: 1rem;
+    margin: 1.5rem 0rem 1rem 0rem;
+    padding: 1rem 0rem;
 }
 
-.post-header h2 {
+.card-header h2 {
     margin-bottom: 0.5rem;
 }
 
-.post-header h2 a {
+.card-header h2 a {
     color: var(--main-dark-gray);
 }
 
-.post-header h2 a:hover {
+.card-header h2 a:hover {
     color: var(--main-green);
 }
 
-.post-body {
-    background: #cacaca;
-    padding: 1rem;
-}
-
-.post-body p {
+.card-body {
+    background: #ececec;
+    padding: 0rem 1rem 0.5rem 1rem;
     margin-bottom: 1rem;
 }
 

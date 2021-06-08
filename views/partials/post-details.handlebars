@@ -1,13 +1,10 @@
-<section class="card">
-    <article class="post-header">
-        <h2><a href="/post/{{id}}">{{title}}</a></h2>
-        <p>Posted by {{user.username}} on {{format_date created_at}}</p>
-    </article>
-    <article class="post-body">
-        <p>
-            {{content}}
-            <br>
-        </p>
-        <a href="/post/{{id}}">Continue to post →</a>
-    </article>
-</section>
+<article class="card-header">
+    <h2><a href="/post/{{id}}">{{title}}</a></h2>
+    <p>Posted by {{user.username}} on {{format_date created_at}}</p>
+</article>
+<article class="card-body">
+    <p>
+        {{content}}
+        <br>
+    </p>
+</article>
