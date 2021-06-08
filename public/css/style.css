@@ -61,7 +61,7 @@ header h1 {
     opacity: 85%;
 }
 
-header nav a {
+header nav a, header nav button {
     border: 1px solid var(--main-white);
     border-radius: 2%;
     color: var(--main-white);
@@ -132,22 +132,27 @@ main {
     margin: 0.8rem 0rem;
 }
 
-.form-group button {
+.form-input {
+    font-size: 100%;
+}
+
+/* Buttons styling */
+.btn {
     background: #1d1d1d;
     border: 1px solid var(--main-dark-gray);
     border-radius: 4%;
     color: var(--main-white);
     font-size: 100%;
     margin: 0.7rem 0rem;
-    padding: 0.5rem 4rem;
+    padding: 0.8rem 3rem;
 }
 
-.form-group button:hover {
+.btn:hover {
     background: #239b6d;
 }
 
-.form-input {
-    font-size: 100%;
+.btn a {
+    color: var(--main-white);
 }
 
 /* Footer section styling */
