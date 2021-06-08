@@ -118,14 +118,17 @@ main {
 }
 
 /* Login/Signup section styling */
+.card {
+    border: 1px solid var(--main-dark-gray);
+    margin-top: 1%;
+    padding: 2rem;
+}
+
 .login-card {
     align-items: center;
-    border: 1px solid var(--main-dark-gray);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 1%;
-    padding: 2rem;
 }
 
 .form-group {
@@ -153,6 +156,35 @@ main {
 
 .btn a {
     color: var(--main-white);
+}
+
+/* Comment section styling */
+.comment-card {
+    margin: 0 1%;
+}
+
+.comment-card textarea {
+    font-size: 120%;
+    margin-top: 1rem;
+    padding: 1%;
+}
+
+.comments-header {
+    border-top: 1px solid rgb(71, 71, 71, 0.2);
+    padding: 1rem 0rem;
+}
+
+#comment {
+    width: 97%;
+}
+
+.comment-author {
+    color: #494949;
+    display: flex;
+    font-size: 90%;
+    font-weight: 600;
+    justify-content: flex-end;
+    margin: 1% 0 0 0;
 }
 
 /* Footer section styling */

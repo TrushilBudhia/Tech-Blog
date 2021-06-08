@@ -20,7 +20,7 @@ Comment.init(
         // Adding user_id to link the comment to the user
         user_id: {
             type: DataTypes.INTEGER,
-            //allowNull: false,
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id',

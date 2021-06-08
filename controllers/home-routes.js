@@ -93,6 +93,15 @@ router.get('/post/:id', async (req, res) => {
     }
 });
 
+router.get('/posts-comments/:id', async (req, res) => {
+    try {
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');

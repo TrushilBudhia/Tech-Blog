@@ -1,14 +1,20 @@
 {{> post-details post}}
 
+<h2 class="comments-header">Comments</h2>
 {{#if loggedIn}}
-<section class="post-card">
-    <form class="form">
-        <label for="comment">Comment:</label><br>
-        <textarea id="comment" name="comment" placeholder="Enter comment"></textarea>>
-        <button class="btn btn-primary" type="submit">Submit</button>
+<section class="comment-card">
+    <form class="comment-form">
+        <label for="comment">Add a comment:</label><br>
+        <textarea id="comment" name="comment" placeholder="Enter comment" rows="4" cols="50"></textarea><br>
+        <button class="btn" type="submit">Submit</button>
     </form>
 </section>
 {{/if}}
 
-<h2>Comments</h2>
+
 {{!-- Add comments partial here --}}
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+<script src="./js/comment.js"></script>
+{{/if}}

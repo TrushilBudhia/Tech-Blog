@@ -12,7 +12,7 @@ const commentData = [
         post_id: 1,
     },
     {
-        comment_text: 'The presence of anonymity makes power dangerous',
+        comment_text: 'The function of anonymity bestows a dangerous mindset',
         user_id: 1,
         post_id: 1,
     },
