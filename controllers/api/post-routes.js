@@ -12,6 +12,9 @@ router.get('/', async (request, response) => {
                 'content',
                 'created_at'
             ],
+            order: [
+                ['created_at', 'DESC'],
+            ],
             include: [
                 {
                     model: Comment,
@@ -112,7 +115,7 @@ router.put('/:id', authentication, async (request, response) => {
     try {
         const dbPostData = await Post.update({
             where: {
-                id: request.body.username,
+                id: request.params.id,
             },
         });
         // If no post, a 404 error status is returned along with a message
