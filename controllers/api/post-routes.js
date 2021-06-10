@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const { Comment, Post, User } = require('../models');
+const { Post, User, Comment } = require('../../models');
+const authentication = require('../../utils/auth');
 
+// Get all posts
 router.get('/', async (request, response) => {
     try {
         const dbPostData = await Post.findAll({
@@ -11,10 +13,6 @@ router.get('/', async (request, response) => {
                 'created_at'
             ],
             include: [
-                {
-                    model: User,
-                    attributes: ['username'],
-                },
                 {
                     model: Comment,
                     attributes: [
@@ -29,24 +27,25 @@ router.get('/', async (request, response) => {
                         attributes: ['username'],
                     },
                 },
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
             ],
         });
 
         const posts = dbPostData.map((post) =>
             post.get({ plain: true })
         );
-
-        response.render('homepage', {
-            posts,
-            loggedIn: request.session.loggedIn,
-        });
+        response.json(posts);
     } catch (err) {
         console.log(err);
         response.status(500).json(err);
     }
 });
 
-router.get('/post/:id', async (request, response) => {
+// Get single post
+router.get('/:id', async (request, response) => {
     try {
         const dbPostData = await Post.findByPk(request.params.id, {
             where: {
@@ -79,37 +78,74 @@ router.get('/post/:id', async (request, response) => {
                 },
             ],
         });
+        // If no post, a 404 error status is returned along with a message
         if (!dbPostData) {
             response.status(404).json({ message: 'No post found with that id' });
             return;
         }
         const post = dbPostData.get({ plain: true });
-        response.render('individual-post', { post, loggedIn: request.session.loggedIn });
+        response.json(post);
     } catch (err) {
         console.log(err);
         response.status(500).json(err);
     }
 });
 
-router.get('/posts-comments/:id', async (request, response) => {
+// Create new post
+router.post('/', authentication, async (request, response) => {
     try {
+        const dbPostData = await Post.create({
+            title: request.body.title,
+            content: request.body.content,
+            user_id: request.body.user_id,
+        });
 
+        response.status(200).json(dbPostData);
     } catch (err) {
         console.log(err);
         response.status(500).json(err);
     }
 });
 
-router.get('/login', (request, response) => {
-    if (request.session.loggedIn) {
-        response.redirect('/');
-        return;
+// Edit post
+router.put('/:id', authentication, async (request, response) => {
+    try {
+        const dbPostData = await Post.update({
+            where: {
+                id: request.body.username,
+            },
+        });
+        // If no post, a 404 error status is returned along with a message
+        if (!dbPostData) {
+            response.status(404).json({ message: 'No post found with that id!' });
+            return;
+        }
+        response.status(200).json({ message: `Updated post id #${request.params.id}` });
+    } catch (err) {
+        console.log(err);
+        response.status(500).json(err);
     }
-    response.render('login');
 });
 
-router.get('/signup', (request, response) => {
-    response.render('signup');
-});
+// Delete post
+router.delete('/:id', authentication, async (request, response) => {
+    // Deletes a post by its `id` value
+    try {
+      const dbPostData = await Post.destroy({
+        where: {
+          id: request.params.id,
+        },
+      });
+      // If no post, a 404 error status is returned along with a message
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with that id!' });
+        return;
+      }
+  
+      response.status(200).json({ message: `Post id #${request.params.id} has been removed` });
+    } catch (error) {
+      response.status(500).json(error);
+    }
+  });
 
 module.exports = router;

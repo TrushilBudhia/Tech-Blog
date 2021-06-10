@@ -27,10 +27,21 @@ a:hover {
     color: var(--main-green);
 }
 
+h3 {
+    margin-bottom: 1rem;
+}
+
+textarea {
+    font-size: 120%;
+    padding: 0.5rem;
+}
+
+/* Page container styling */
+
 #page-container {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Header styling */
@@ -84,10 +95,12 @@ header nav a:hover {
 
 /* Main section styling */ 
 main {
+    margin-top: 1.5rem;
     padding-bottom: 2rem;
+    padding-left: 0.5rem;
 }
 
-/* Card section styling */ 
+/* Post card section styling */ 
 .post-card {
     border-bottom: 1px solid rgb(71, 71, 71, 0.2);
     padding-bottom: 3%;
@@ -96,7 +109,7 @@ main {
 .post-header {
     display: block;
     margin: 1.5rem 0rem 1rem 0rem;
-    padding: 1% 1%;
+    padding: 1% 0%;
 }
 
 .post-header h2 {
@@ -120,6 +133,9 @@ main {
 .post-link {
     padding: 1%;
 }
+
+/* Add new post section styling */
+
 
 /* Login/Signup section styling */
 .card {
@@ -158,10 +174,6 @@ main {
     background: #239b6d;
 }
 
-.btn a {
-    color: var(--main-white);
-}
-
 /* Comment section styling */
 .comments .card {
     margin: 1%;
@@ -172,17 +184,15 @@ main {
 }
 
 .comment-card textarea {
-    font-size: 120%;
     margin-top: 1rem;
-    padding: 1%;
 }
 
 .comments-header {
     border-top: 1px solid rgb(71, 71, 71, 0.2);
-    padding: 1.5rem 1%;
+    padding: 1.5rem 0;
 }
 
-#comment {
+#comment, #post-title, #post-content {
     width: 97%;
 }
 

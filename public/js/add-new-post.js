@@ -3,7 +3,8 @@ const addPostFormHandler = async (event) => {
   
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#post-content').value.trim();
-  
+    console.log('title', title);
+    console.log('content', content);
     if (title && content) {
       const response = await fetch('/api/posts', {
         method: 'POST',
@@ -16,10 +17,20 @@ const addPostFormHandler = async (event) => {
       } else {
         alert('Failed to create post.');
       }
+    } else {
+      const titleRequirement = document.querySelector('#post-title').placeholder = 'A title is required before adding a post';
+      const contentRequirement = document.querySelector('#post-content').placeholder = 'Content cannot be left empty before adding a post';
+        
+      if(!title && !content) {
+        titleRequirement;
+        contentRequirement
+      } else if (!title) {
+        titleRequirement;
+      } else if (!content) {
+        contentRequirement
+      }
     }
   };
   
-  document
-    .querySelector('#add-post-btn')
-    .addEventListener('submit', addPostFormHandler);
+  document.querySelector('#add-post-btn').addEventListener('click', addPostFormHandler);
   
