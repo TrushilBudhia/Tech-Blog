@@ -15,7 +15,10 @@ Comment.init(
         },
         comment_text: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false,      
+            validate: {
+                len: [1],
+              },
         },
         // Adding user_id to link the comment to the user
         user_id: {

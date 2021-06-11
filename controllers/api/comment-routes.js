@@ -5,11 +5,7 @@ const authentication = require('../../utils/auth');
 // Get all comments
 router.get('/', async (request, response) => {
     try {
-        const dbCommentData = await Comment.findAll({
-            order: [
-                ['created_at', 'ASC'],
-            ],
-        });
+        const dbCommentData = await Comment.findAll({});
 
         response.json(dbCommentData);
     } catch (err) {
@@ -40,14 +36,18 @@ router.get('/:id', async (request, response) => {
 
 // Create new comment
 router.post('/', authentication, async (request, response) => {
+    console.log('This and that', request.session);
     try {
-        const dbCommentData = await Comment.create({
-            comment_text: request.body.comment_text,
-            user_id: request.body.user_id,
-            post_id: request.body.post_id,
-        });
+        if(request.session) {
+            const dbCommentData = await Comment.create({
+                comment_text: request.body.comment_text,
+                post_id: request.body.post_id,
+                user_id: request.session.user_id,
+            });
 
-        response.status(200).json(dbCommentData);
+            response.status(200).json(dbCommentData);
+            console.log('data', dbCommentData);
+        }
     } catch (err) {
         console.log(err);
         response.status(500).json(err);

@@ -1,16 +1,73 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { Comment, Post, User } = require('../../models');
 
-// CREATE new user
+// Get users
+router.get('/', async (request, response) => {
+    try {
+        const dbUserData = await User.findAll({
+            attributes: { exclude: ['password'] },
+        });
+        response.status(200).json(dbUserData);
+    } catch (err) {
+        console.log(err);
+        response.status(500).json(err);
+    }
+});
+
+// Get a user
+router.get('/:id', async (request, response) => {
+    try {
+        const dbUserData = await User.findByPk(request.params.id, {
+            where: {
+                id: request.params.id,
+            },
+            include: [
+                {
+                    model: Post,
+                    attributes: [
+                        'id',
+                        'title',
+                        'content',
+                        'created_at'
+                    ],
+                },
+                {
+                    model: Comment,
+                    attributes: [
+                        'id',
+                        'comment_text',
+                        'created_at'
+                    ],
+                    include: {
+                        model: Post,
+                        attributes: ['title'],
+                    },
+                },
+            ],
+        });
+        if (!dbUserData) {
+            response.status(404).json({ message: 'No user found with that id' });
+            return;
+        }
+        response.status(200).json(dbUserData);
+    } catch (err) {
+        console.log(err);
+        response.status(500).json(err);
+    }
+});
+
+
+// Create new user
 router.post('/', async (request, response) => {
     try {
         const dbUserData = await User.create({
             username: request.body.username,
-            email: request.body.email,
             password: request.body.password,
         });
 
         request.session.save(() => {
+            request.session.user_id = dbUserData.id;
+            request.session.username = dbUserData.username;
             request.session.loggedIn = true;
 
             response.status(200).json(dbUserData);
