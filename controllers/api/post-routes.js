@@ -32,11 +32,14 @@ router.get('/', async (request, response) => {
                 },
                 {
                     model: User,
-                    attributes: ['username'],
+                    attributes: [
+                        'id',
+                        'username',
+                    ],
                 },
             ],
         });
-
+        
         const posts = dbPostData.map((post) =>
             post.get({ plain: true })
         );
@@ -100,7 +103,7 @@ router.post('/', authentication, async (request, response) => {
         const dbPostData = await Post.create({
             title: request.body.title,
             content: request.body.content,
-            user_id: request.body.user_id,
+            user_id: request.session.user_id,
         });
 
         response.status(200).json(dbPostData);

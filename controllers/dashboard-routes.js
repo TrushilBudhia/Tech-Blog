@@ -5,11 +5,17 @@ const authentication = require('../utils/auth');
 router.get('/', authentication, async (request, response) => {
     try {
         const dbPostData = await Post.findAll({
+            where: {
+                user_id: request.session.user_id,
+            },
             attributes: [
                 'id',
                 'title',
                 'content',
                 'created_at'
+            ],
+            order: [
+                ['created_at', 'DESC'],
             ],
             include: [
                 {
@@ -40,6 +46,8 @@ router.get('/', authentication, async (request, response) => {
         response.render('dashboard', {
             posts,
             loggedIn: request.session.loggedIn,
+            user_id: request.session.user_id,
+            username: request.session.username,
         });
     } catch (err) {
         console.log(err);

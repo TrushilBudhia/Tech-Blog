@@ -94,14 +94,14 @@ router.get('/post/:id', async (request, response) => {
     }
 });
 
-router.get('/posts-comments/:id', async (request, response) => {
-    try {
+// router.get('/posts-comments/:id', async (request, response) => {
+//     try {
 
-    } catch (err) {
-        console.log(err);
-        response.status(500).json(err);
-    }
-});
+//     } catch (err) {
+//         console.log(err);
+//         response.status(500).json(err);
+//     }
+// });
 
 router.get('/login', (request, response) => {
     if (request.session.loggedIn) {

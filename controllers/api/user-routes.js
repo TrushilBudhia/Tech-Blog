@@ -7,6 +7,7 @@ router.get('/', async (request, response) => {
         const dbUserData = await User.findAll({
             attributes: { exclude: ['password'] },
         });
+
         response.status(200).json(dbUserData);
     } catch (err) {
         console.log(err);
@@ -100,6 +101,8 @@ router.post('/login', async (request, response) => {
         }
 
         request.session.save(() => {
+            request.session.user_id = dbUserData.id;
+            request.session.username = dbUserData.username;
             request.session.loggedIn = true;
 
             response.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
