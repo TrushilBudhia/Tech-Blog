@@ -16,8 +16,8 @@
 
 /* Element styling */ 
 body {
-    background: #ececec;
-    font-family: Tahoma, Geneva, sans-serif;
+    background: #dce0e4;
+    font-family: 'Source Sans Pro', 'Roboto', sans-serif;
 }
 
 a {
@@ -94,9 +94,9 @@ header nav a:hover {
 
 /* Main section styling */ 
 main {
+    color: var(--main-dark-gray);
     margin-top: 1.5rem;
-    padding-bottom: 2rem;
-    padding-left: 0.5rem;
+    padding: 0rem 0rem 2rem 0.5rem;
 }
 
 /* Post card section styling */
@@ -105,12 +105,17 @@ main {
 } 
 
 .post-card {
-    padding-bottom: 3%;
+    background: #f0f0f0;
+    /* border: 1px solid rgb(71, 71, 71, 0.2); */
+    /* box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%); */
+    border-radius: 0.2rem;
+    margin-bottom: 1.5rem;
+    padding: 0.2rem 1rem 1rem 1rem;
 }
 
 .post-header {
     display: block;
-    margin: 1.5rem 0rem 1rem 0rem;
+    /* margin: 1.5rem 0rem 1rem 0rem; */
     padding: 1% 0%;
 }
 
@@ -127,7 +132,7 @@ main {
 }
 
 .post-body {
-    background: #ececec;
+    /* background: #ececec; */
     padding: 0rem 1rem 0.5rem 1rem;
     margin-bottom: 1rem;
 }
@@ -184,6 +189,7 @@ main {
 /* Login/Signup section styling */
 .card {
     border: 1px solid var(--main-dark-gray);
+    border-radius: 0.2rem;
     margin-top: 1rem;
     padding: 2rem;
 }
