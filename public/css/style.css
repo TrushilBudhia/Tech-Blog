@@ -1,8 +1,9 @@
 /* Setting up CSS variables in the root */
 :root {
     --main-black: #000000;
-    --main-green: #19a020;
     --main-dark-gray: #202020;
+    --main-forest-green: #239b6d;
+    --main-green: #19a020;
     --main-light-plum: #924577;
     --main-white: #ffffff;
 }
@@ -37,7 +38,6 @@ textarea {
 }
 
 /* Page container styling */
-
 #page-container {
     display: flex;
     flex-direction: column;
@@ -48,14 +48,13 @@ textarea {
 header {
     background: 
         linear-gradient(
-            rgba(0, 0, 0, 0.4), 
+            rgba(0, 0, 0, 0.6), 
             rgba(0, 0, 0, 0.3)
         ), 
         url("../images/bg.jpg") no-repeat bottom fixed;
     background-size: cover;
     border-bottom: 1px solid #2c2c2c;
     /* box-shadow: 0 1px 2px 0 rgb(0 0 0 / 50%); */
-    color: #00688B;
     font-size: 125%;
     padding: 8rem 1.3rem;
 }
@@ -158,13 +157,22 @@ main {
 }
 
 .dashboard-button:hover {
-    background: #239b6d;
-    color: var(--main-white);
+    border: 1px solid var(--main-forest-green);
+    color: var(--main-forest-green);
 }
 
-.heading-subtext {
-    font-size: 80%;
+.subtext {
+    font-size: 90%;
     font-weight: 100;
+    margin-left: 5%;
+}
+
+.display {
+    display: inline-block;
+}
+
+.no-display {
+    display: none;
 }
 
 #welcome-text {
@@ -172,7 +180,6 @@ main {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
 }
-
 
 /* Login/Signup section styling */
 .card {
@@ -197,7 +204,7 @@ main {
 }
 
 /* Buttons styling */
-.btn {
+.button {
     background: #1d1d1d;
     border: 1px solid var(--main-dark-gray);
     border-radius: 0.1rem;
@@ -207,7 +214,7 @@ main {
     padding: 0.8rem 3rem;
 }
 
-.btn:hover {
+.button:hover {
     background: #239b6d;
 }
 
@@ -240,6 +247,12 @@ main {
     font-weight: 600;
     justify-content: flex-end;
     margin: 0.7rem 0 0 0;
+}
+
+/* Error message styling */
+.error-message {
+    color: #ff0000;
+    margin-top: 1rem;
 }
 
 /* Footer section styling */

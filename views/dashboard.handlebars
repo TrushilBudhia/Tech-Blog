@@ -1,22 +1,15 @@
-<p class="separator" id="welcome-text">Welcome, {{username}}. Please select what you would like to do.</p>
+<p class="separator" id="welcome-text">Welcome, {{username}}.</p>
 
 <a href="/dashboard/new">
-    <button type="submit" class="btn" id="add-post-button">Add New Post</button>
+    <button type="submit" class="button" id="add-post-button">Add New Post</button>
 </a>
 
 {{#if posts.length}}
 <section class="section-header separator">
-    <h2>Your Posts <span class="heading-subtext">- select a post to edit</span></h2>
+    <h2>Your Posts</h2>
     {{#each posts as |post|}}
-        {{!-- {{> dashboard-post post}} --}}
-        <a href="/dashboard/edit/{{id}}">
-            <article class="dashboard-button">
-                <h4>{{title}}</h4>
-            </article>
-        </a>
+        {{> dashboard-post-entry post}}
     {{/each}}
 </section>
 {{/if}}
 
-
-<script src="/../js/add-new-post.js"></script>

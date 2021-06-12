@@ -4,20 +4,14 @@ const editPostFormHandler = async (event) => {
 
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#post-content').value.trim();
-    document.querySelector('#post-title').setAttribute('value', title);
-    document.querySelector('#post-content').setAttribute('value', content);
 
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
 
-    console.log('title', title);
-    console.log('content', content);
     if (title && content) {
-        alert('if statement entered');
-
         const response = await fetch(`/api/posts/${id}`, {
-            method: 'POST',
+            method: 'PUT',
             body: JSON.stringify({
                 post_id: id,
                 title,
@@ -29,7 +23,8 @@ const editPostFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert('Failed to edit post.');
+            const error = `<p>*Failed to edit post</p>`;
+            document.querySelector('.error-message').innerHTML = error;
         }
     } else {
         const titleRequirement = document.querySelector('#post-title').placeholder = 'A title is required before adding a post';

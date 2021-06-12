@@ -117,6 +117,10 @@ router.post('/', authentication, async (request, response) => {
 router.put('/:id', authentication, async (request, response) => {
     try {
         const dbPostData = await Post.update({
+            title: request.body.title,
+            content: request.body.content,
+        },
+        {
             where: {
                 id: request.params.id,
             },
