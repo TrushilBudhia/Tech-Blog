@@ -15,10 +15,13 @@ Comment.init(
         },
         comment_text: {
             type: DataTypes.STRING,
-            allowNull: false,      
+            allowNull: false,
             validate: {
                 len: [1],
-              },
+                notNull: {
+                    msg: 'Comment text cannot be null'
+                },
+            },
         },
         // Adding user_id to link the comment to the user
         user_id: {
@@ -28,6 +31,11 @@ Comment.init(
                 model: 'user',
                 key: 'id',
             },
+            validate: {
+                notNull: {
+                    msg: 'User id cannot be null'
+                },
+            },
         },
         // Adding post_id to link the comment to the post
         post_id: {
@@ -36,6 +44,11 @@ Comment.init(
             references: {
                 model: 'post',
                 key: 'id',
+            },
+            validate: {
+                notNull: {
+                    msg: 'Post id cannot be null'
+                },
             },
         },
     },

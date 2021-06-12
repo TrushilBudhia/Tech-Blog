@@ -218,6 +218,10 @@ main {
     background: #239b6d;
 }
 
+#delete-post-button:hover {
+    background: #d32929;
+}
+
 /* Comment section styling */
 .comments .card {
     margin: 1rem;

@@ -16,10 +16,20 @@ Post.init(
         title: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                notNull: {
+                    msg: 'Title cannot be null'
+                },
+            },
         },
         content: {
             type: DataTypes.TEXT,
             allowNull: false,
+            validate: {
+                notNull: {
+                    msg: 'Content cannot be null'
+                },
+            },
         },
         user_id: {
             type: DataTypes.INTEGER,

@@ -1,6 +1,5 @@
 const editPostFormHandler = async (event) => {
     event.preventDefault();
-    console.log('edit post entered');
 
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#post-content').value.trim();
