@@ -1,8 +1,8 @@
 const addPostFormHandler = async (event) => {
     event.preventDefault();
   
-    const title = document.querySelector('#post-title').value.trim();
-    const content = document.querySelector('#post-content').value.trim();
+    const title = document.querySelector('#post-title').value;
+    const content = document.querySelector('#post-content').value;
     console.log('title', title);
     console.log('content', content);
     if (title && content) {

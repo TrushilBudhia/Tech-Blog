@@ -89,7 +89,7 @@ header nav a:hover {
 /* Main section styling */ 
 main {
     color: var(--main-dark-gray);
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     padding: 0rem 0rem 2rem 0.5rem;
 }
 
@@ -293,7 +293,7 @@ footer p a:hover {
 
     main {
         margin: 0 auto;
-        margin-top: 1.5rem;
+        margin-top: 2.5rem;
         width: 66%;
     }
 }
