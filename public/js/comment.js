@@ -21,5 +21,6 @@ const commentFormHandler = async (event) => {
     }
   };
   
+  // When the user clicks the add comment button, the commentFormHandler will be called
   document.querySelector('#add-comment-button').addEventListener('click', commentFormHandler);
   

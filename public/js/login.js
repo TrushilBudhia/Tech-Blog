@@ -19,6 +19,5 @@ const loginFormHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+// When the user clicks the login button in the login page, the loginFormHandler will be called
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);

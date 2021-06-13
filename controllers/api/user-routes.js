@@ -79,7 +79,7 @@ router.post('/', async (request, response) => {
     }
 });
 
-// Login
+// Login to the website - creates a session
 router.post('/login', async (request, response) => {
     try {
         const dbUserData = await User.findOne({
@@ -113,7 +113,7 @@ router.post('/login', async (request, response) => {
     }
 });
 
-// Logout
+// Logout of the account on the website - ends the session
 router.post('/logout', (request, response) => {
     if (request.session.loggedIn) {
         request.session.destroy(() => {

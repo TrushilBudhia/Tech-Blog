@@ -13,6 +13,5 @@ const logoutHandler = async (event) => {
     }
 }
 
-document
-  .querySelector('#logout')
-  .addEventListener('click', logoutHandler);
+// When the user clicks the logout button, the logoutHandler will be called
+document.querySelector('#logout').addEventListener('click', logoutHandler);

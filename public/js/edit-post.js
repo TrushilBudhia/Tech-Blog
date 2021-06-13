@@ -40,4 +40,5 @@ const editPostFormHandler = async (event) => {
     }
 };
 
+// When the user clicks the edit post button, the editPostFormHandler will be called
 document.querySelector('#edit-post-button').addEventListener('click', editPostFormHandler);

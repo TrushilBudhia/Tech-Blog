@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Comment, Post, User } = require('../models');
 const authentication = require('../utils/auth');
 
+// Get dashboard page
 router.get('/', authentication, async (request, response) => {
     try {
         const dbPostData = await Post.findAll({
@@ -55,6 +56,7 @@ router.get('/', authentication, async (request, response) => {
     }
 });
 
+// Get the edit post page
 router.get('/edit/:id', authentication, async (request, response) => {
     try {
         const dbPostData = await Post.findByPk(request.params.id, {
@@ -100,6 +102,7 @@ router.get('/edit/:id', authentication, async (request, response) => {
     }
 });
 
+// Get the add new post page
 router.get('/new', authentication, async (request, response) => {
     try {
         response.render('add-new-post', { loggedIn: request.session.loggedIn });

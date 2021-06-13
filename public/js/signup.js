@@ -19,6 +19,5 @@ const signupFormHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+// When the user clicks the signup button, the signupFormHandler will be called
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);

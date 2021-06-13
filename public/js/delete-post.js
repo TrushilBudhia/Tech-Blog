@@ -21,4 +21,5 @@ const deletePostFormHandler = async (event) => {
     }
 };
 
+// When the user clicks the delete post button, the deletePostFormHandler will be called
 document.querySelector('#delete-post-button').addEventListener('click', deletePostFormHandler);

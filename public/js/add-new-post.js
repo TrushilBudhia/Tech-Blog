@@ -33,5 +33,6 @@ const addPostFormHandler = async (event) => {
     }
   };
   
+  // When the user clicks the add post button, the addPostFormHandler will be called
   document.querySelector('#post-button').addEventListener('click', addPostFormHandler);
   
