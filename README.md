@@ -35,7 +35,7 @@ npm start
 ```
 
 ## Assets
-Live demo of the application hosted on Heroku: [Tech Blog - Lets Get Technucated]
+Live demo of the application hosted on Heroku: [Tech Blog - Lets Get Technucated](https://lets-get-technucated.herokuapp.com/)
 
 The following images shows the functionality of the application: 
 
