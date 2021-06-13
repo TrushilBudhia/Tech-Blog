@@ -15,7 +15,8 @@ const addPostFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/dashboard');
       } else {
-        alert('Failed to create post.');
+        const error = `<p>*Failed to create post</p>`;
+        document.querySelector('.error-message').innerHTML = error;
       }
     } else {
       const titleRequirement = document.querySelector('#post-title').placeholder = 'A title is required before adding a post';
