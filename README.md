@@ -6,7 +6,7 @@
 
 A blog website that allows developers to publish posts and comment on other posts. 
 
-The application follows the MVC paradigm in its architectural structure, uses Handlebars.js as the templating language, Sequelize as the ORM, and the exxpress-session npm package for authentication.
+The application follows the MVC paradigm in its architectural structure, uses Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ## 📖Table of Contents
 1. [Installation](#installation)
@@ -55,6 +55,7 @@ The following images shows the functionality of the application:
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
 - [Connect Session Sequelize](https://www.npmjs.com/package/connect-session-sequelize)
 - [Express Handlebars](https://www.npmjs.com/package/express-handlebars)
+- [Heroku](https://www.heroku.com/)
 - JavaScript
 
 ## License
