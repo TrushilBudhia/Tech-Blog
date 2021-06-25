@@ -193,8 +193,48 @@ main {
     margin: 0.8rem 0rem;
 }
 
-.form-input {
-    font-size: 100%;
+.field {
+    margin-top: 0.5rem;
+}
+
+.label {
+    color: #363636;
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.is-medium {
+    font-size: 1.25rem;
+}
+
+.input, .textarea {
+    background-color: #fff;
+    border-color: #dbdbdb;
+    border-radius: 4px;
+    box-shadow: inset 0 0.0625em 0.125em rgb(10 10 10 / 5%);
+    color: #363636;
+    max-width: 100%;
+    width: 100%;
+}
+
+.input {
+    -webkit-appearance: none;
+    align-items: center;
+    /* border: 1px solid transparent; */
+    border-radius: 4px;
+    box-shadow: none;
+    display: inline-flex;
+    font-size: 1rem;
+    height: 1.5em;
+    justify-content: flex-start;
+    line-height: 1.5;
+    padding-bottom: calc(.5em - 1px);
+    padding-left: calc(.75em - 1px);
+    padding-right: calc(.75em - 1px);
+    padding-top: calc(.5em - 1px);
+    position: relative;
+    vertical-align: top;
 }
 
 /* Buttons styling */

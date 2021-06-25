@@ -33,6 +33,7 @@ Once the host, port, user, password and database details have been provided to t
 ```js
 npm start
 ```
+*The .env-EXAMPLE file can be used to create your own .env file with the required information. 
 
 ## Assets
 Live demo of the application hosted on Heroku: [Tech Blog - Lets Get Technucated](https://lets-get-technucated.herokuapp.com/)
